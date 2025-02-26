@@ -1,0 +1,27 @@
+---
+description: Organising new functionality in files
+globs: **/*.py
+---
+ # Code Organization and Modularity
+
+## Module Separation
+- **Integration Modules**: Any functionality that integrates with external systems (tmux, hardware, etc.) should be placed in dedicated Python modules
+- **Functional Separation**: Code should be separated based on functionality, not just application boundaries
+- **Directory Structure**: Use the `src/` directory for all core modules and libraries
+
+## Module Design Principles
+- **Self-Contained**: Each module should be self-contained with minimal dependencies
+- **Single Responsibility**: Each module should have a clear, focused responsibility
+- **Consistent Interfaces**: Modules should expose clear, well-documented interfaces
+- **Configurable**: Use parameters with sensible defaults to make modules configurable
+
+## When to Create a New Module
+- When adding functionality that interacts with an external system
+- When implementing a feature that could be reused across applications
+- When a file grows beyond 200-300 lines of code
+- When a set of functions serves a distinct purpose from the rest of the file
+
+## Imports and Dependencies
+- Import only what you need from modules
+- Prefer relative imports within the package
+- Keep the main application files clean by moving complex functionality to modules

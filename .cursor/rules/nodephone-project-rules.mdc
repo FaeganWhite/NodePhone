@@ -1,0 +1,65 @@
+---
+description: When writing any code for the nodephone project
+globs: **/*.py
+---
+# NodePhone Project Rules
+
+## Project Overview
+NodePhone is a terminal-based phone operating environment built on Raspberry Pi Zero running Pi OS Lite. The system leverages tmux as its core interface manager, combining custom Python applications with terminal wrappers while maintaining access to standard Linux functionality. Hardware GPIO buttons provide physical navigation controls.
+
+## Core Architecture Principles
+- **tmux-Centered Design**: All interfaces are built within tmux sessions/windows/panes
+- **Terminal-First**: All applications default to terminal interfaces
+- **Keyboard/Button Navigation**: System is fully navigable via GPIO buttons or keyboard
+- **Minimal Resource Usage**: Optimize for the Pi Zero's limited resources
+
+## Development Standards
+
+### Code Style
+- All code is written in Python
+- Simple, elegant implementations preferred over complex solutions
+- Functions should do one thing well
+- Use tabs for indentation
+
+### Naming Conventions
+- Use descriptive, human-readable variable and function names
+- Use snake_case for variables and functions
+- Use PascalCase for classes
+- Constants should be UPPERCASE_WITH_UNDERSCORES
+
+### Comments and Documentation
+- All code must include simple comments explaining functionality
+- Each file should have a brief header comment explaining its purpose
+- Each function should have a brief comment explaining its purpose
+- Comment complex logic but avoid redundant comments
+
+### Packages and Dependencies
+- Minimize external dependencies
+- Only add packages when:
+  - Explicitly instructed to do so
+  - Functionality is essential and would be significantly complex to implement
+  - Package is lightweight and Pi OS Lite compatible
+- Core dependencies permitted: tmux, Python standard library, GPIO libraries
+
+### Error Handling
+- Use simple try/except blocks for error handling
+- Log errors clearly for debugging
+- Fail gracefully with user-friendly messages
+
+## Application Structure
+- Each application is a self-contained Python module
+- Apps communicate via simple interfaces (files, sockets, or pipes)
+- Apps should follow a common interface pattern for consistency
+- Apps should be launchable independently or from the main menu
+
+## User Interface Guidelines
+- Text-based interfaces using standard terminal capabilities
+- Consistent navigation patterns across all applications
+- Visual indicators for current selection and available actions
+- Status information displayed consistently (battery, connectivity, etc.)
+
+## Performance Considerations
+- Minimize CPU and memory usage
+- Avoid polling where possible; use events and interrupts
+- Consider startup time for all applications
+- Optimize for battery life

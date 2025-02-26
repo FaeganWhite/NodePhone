@@ -1,0 +1,72 @@
+---
+description: When creating or modifying any architectural components or structures
+globs: **/*.py
+---
+ # NodePhone Architecture
+
+## Three-Layer Design
+NodePhone follows a three-layer architecture that separates system management, interface handling, and application logic:
+
+1. **System Layer (main.py)**
+   - Program initialization and entry point
+   - System-wide service management
+   - Environment validation and setup
+   - Signal handling and error recovery
+   - Process lifecycle management
+
+2. **Interface Layer (tmux_manager.py)**
+   - tmux session management
+   - Window/pane creation and configuration
+   - Navigation structure implementation
+   - Interface between system and applications
+   - Script execution within tmux context
+
+3. **Application Layer (app_launcher.py)**
+   - Application discovery and loading
+   - User interface for app selection
+   - Common application interface
+   - App switching and management
+   - User input handling
+
+## Communication Flow
+- System Layer → Interface Layer: Direct function calls
+- Interface Layer → Application Layer: Process spawning in tmux
+- Application Layer → Interface Layer: Return to launcher (process exit)
+- Interface Layer → System Layer: Process exit signals
+
+## Design Principles
+
+### System Layer Principles
+- Keep the system layer minimal and focused on initialization
+- Handle global signals and system-level resources
+- Validate environment before proceeding
+- Provide clean exit paths
+
+### Interface Layer Principles
+- Abstract tmux complexity away from other layers
+- Provide clean functions for window/session management
+- Handle the mechanics of running applications in tmux
+- Maintain session state across application switches
+
+### Application Layer Principles
+- Present a consistent UI across applications
+- Provide discovery mechanism for new applications
+- Handle user input in a standardized way
+- Allow applications to be self-contained modules
+
+## Implementation Guidelines
+
+1. **New Applications**
+   - Create new functions in AppLauncher or new modules in src/apps/
+   - Register applications in the discovery method
+   - Follow the standard input/output patterns
+
+2. **Interface Extensions**
+   - Add new window management functions to tmux_manager.py
+   - Keep tmux-specific code isolated to the interface layer
+   - Document new window layouts or patterns
+
+3. **System-Level Features**
+   - Add initialization in main.py
+   - Consider creating service modules for background functions
+   - Ensure proper signal handling and cleanup

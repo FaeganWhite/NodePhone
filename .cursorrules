@@ -1,0 +1,33 @@
+# Cursor Rules Documentation
+
+## Purpose
+Cursor Rules provide documentation and guidelines for the AI and developers to follow when working with this codebase. These rules help ensure consistent code organization, style, and project-specific patterns.
+
+## Rule Organization
+- Rules are stored in the `.cursor/rules/` directory
+- Each rule file uses the `.mdc` extension (Markdown for Cursor)
+- Rules should be written in Markdown format with clear headers and structure
+- Each rule file should focus on a specific aspect of development
+
+## Rule Naming
+- Use descriptive, hyphenated names for rule files
+- Examples: `code-organization.mdc`, `style-guide.mdc`, `hardware-integration.mdc`
+
+## Rule Structure
+- Start with a clear title (H1)
+- Use section headers (H2, H3) to organize content
+- Use bullet points for lists of guidelines
+- Include examples where helpful
+- Keep explanations concise and actionable
+
+## Rule Content Guidelines
+- Focus on practical guidance that can be applied to code
+- Include rationales for important guidelines
+- Group related guidelines under appropriate sections
+- Use formatting (bold, lists, etc.) to improve readability
+- Avoid overly restrictive rules that limit creativity
+
+## Updating Rules
+- Update rules as new patterns emerge in the project
+- Ensure new rules align with the existing architecture
+- Document new rules after implementing successful patterns 

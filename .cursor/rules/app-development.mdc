@@ -1,0 +1,33 @@
+---
+description: When developing new apps or working on current apps for the node phone
+globs: **/*.py
+---
+# NodePhone App Development Guidelines
+
+## App Structure
+- Each app should be a Python module in the `src/apps` directory
+- Apps must provide a `run()` function as their main entry point
+- Apps should be self-contained with minimal dependencies
+
+## App Discovery
+- Apps are automatically discovered from the `src/apps` directory
+- The AppLauncher loads all modules with a callable `run()` function
+
+## Input/Output Guidelines
+- Use `input()` for user input
+- Display output with `print()` statements
+- Clear the screen at appropriate times with `os.system('clear')`
+- Provide a confirmation prompt before returning to the menu
+- Use simple ASCII/text-based interfaces
+
+## Error Handling
+- Each app should handle its own errors
+- Use try/except blocks to catch exceptions
+- Display user-friendly error messages
+- Always provide a way to return to the main menu
+- Never exit the program (let the launcher handle exit)
+
+## App Testing
+- Apps should be testable by running them directly (`python src/apps/your_app.py`)
+- Include a `if __name__ == "__main__":` block that calls the `run()` function
+- Ensure apps work both standalone and when launched from the AppLauncher
